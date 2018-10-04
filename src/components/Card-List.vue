@@ -11,13 +11,16 @@
 <script>
 import Card from "./Card";
 export default {
-  name: "List",
+  name: "CardList",
   props: {
     activeData: {
       type: Object,
       required: true,
       default: {}
     }
+  },
+  mounted() {
+    this.$root.$on("emitFromRoot", arg => console.log(arg));
   },
   components: { Card }
 };

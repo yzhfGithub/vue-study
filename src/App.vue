@@ -2,13 +2,11 @@
   <div id="app">
     <div class="nav">
       <div class="nav-wrap">
-
         <Nav :lists="sort_show"
              klass="nav-list"
              @emitFromList="handlerInParent">
         </Nav>
-        <List :activeData="active_data || default_data"></List>
-
+        <card-list :activeData="active_data || default_data"></card-list>
       </div>
     </div>
   </div>
@@ -18,7 +16,7 @@
 /* eslint-disable */
 import axios from "axios";
 import Nav from "./components/Nav";
-import List from "./components/List";
+import CardList from "./components/Card-List";
 export default {
   name: "App",
   data() {
@@ -61,9 +59,13 @@ export default {
         console.log("e->", e);
       });
   },
+  mounted() {
+    // console.log(this.$root.author);
+    // console.log(this.$root.eventbus);
+  },
   components: {
     Nav,
-    List
+    CardList
   }
 };
 </script>

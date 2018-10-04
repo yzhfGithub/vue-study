@@ -44,6 +44,8 @@ export default {
     handleListClick(tabindex) {
       this.localTabActive = tabindex;
       this.$emit("emitFromList", tabindex);
+      //eventbus
+      this.$root.$emit("emitFromRoot", tabindex);
     }
   }
 };
