@@ -5,7 +5,7 @@
     <p>{{cards.desc}}</p>
     <div>
       <span>{{cards.who}}</span>
-      <span>{{cards.publishedAt}}</span>
+      <span>{{cards.publishedAt | timefmt}}</span>
     </div>
   </a>
 </div>
@@ -24,6 +24,11 @@ export default {
       type: String,
       default: "",
       required: false
+    }
+  },
+  filters: {
+    timefmt(val) {
+      return val.split(/T/i)[0];
     }
   }
 };

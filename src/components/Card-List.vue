@@ -15,12 +15,8 @@ export default {
   props: {
     activeData: {
       type: Object,
-      required: true,
-      default: {}
+      required: false
     }
-  },
-  mounted() {
-    this.$root.$on("emitFromRoot", arg => console.log(arg));
   },
   components: { Card }
 };

@@ -29,23 +29,18 @@ export default {
       required: false
     }
   },
-  data() {
-    return {
-      localTabActive: this.tabActive
-    };
-  },
   computed: {
+    defaultActiveStatu() {
+      return this.$store.state.tab.tabIndex;
+    },
     activeStatus() {
       let status = [0, 0, 0];
-      return (status[this.localTabActive] = 1), status;
+      return (status[this.defaultActiveStatu] = 1), status;
     }
   },
   methods: {
     handleListClick(tabindex) {
-      this.localTabActive = tabindex;
-      this.$emit("emitFromList", tabindex);
-      //eventbus
-      this.$root.$emit("emitFromRoot", tabindex);
+      this.$store.commit("tab/changeActiveTab", { tabActive: tabindex });
     }
   }
 };
